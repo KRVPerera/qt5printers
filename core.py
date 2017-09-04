@@ -640,7 +640,7 @@ class QStringPrinter:
 
     def to_string(self):
         d = self.val['d']
-        data = d.reinterpret_cast(gdb.lookup_type('char').pointer()) + d['offset']
+        data = d.reinterpret_cast(gdb.lookup_type('char').pointer()) + 26
         data_len = d['size'] * gdb.lookup_type('unsigned short').sizeof
         return data.string('utf-16', 'replace', data_len)
 
